@@ -53,7 +53,7 @@ class CPU:
         self.ram = [0] * 256  # RAM
         self.reg = [0] * 8  # Registers
         self.pc = 0  # Program counter
-        self.fl = 0  # CMP flag
+        self.fl = 0  # CMP flag : 00000LGE
         self.running = True
         self.reg[SP] = 0xf4  # Initialized stack pointer
         self.ie = True  # Interrupt flag
@@ -170,7 +170,6 @@ class CPU:
     # ALU Operations
     def alu(self, op, reg_a, reg_b):
         """ALU operations."""
-        # flags: 00000LGE
         if op == ADD:
             self.reg[reg_a] += self.reg[reg_b]
         elif op == SUB:
